@@ -1,0 +1,57 @@
+public static void displayLetters(Button[][] gameBoardButtons, String[][] gameBoardLetters, TextView categoryLabel, boolean showAll) {
+        boolean doneFindingWords = false;
+        Phrase currPhrase = Phrases.activePhrase;
+        String phraseStr = currPhrase.getPhraseStr();
+        String[] wordsInPhraseArr = phraseStr.split(" ");
+        List<String> wordsInPhrase = new ArrayList<String>(Arrays.asList(wordsInPhraseArr));
+
+
+        categoryLabel.setText("Category: " + Phrases.activePhrase.getCategory());
+
+        /*while (!doneFindingWords) {
+            int indexOfSpace = phraseStr.indexOf(' ');
+            String wordToAdd = "";
+
+            if (indexOfSpace == -1) {
+                wordToAdd = phraseStr;
+                doneFindingWords = true;
+            } else {
+                wordToAdd = phraseStr.substring(0, indexOfSpace);
+                phraseStr = phraseStr.substring(indexOfSpace + 1, phraseStr.length());
+            }
+
+            wordsInPhrase.add(wordToAdd);
+        }*/
+
+        for (int i = 0; i < wordsInPhrase.size(); i++) {
+            String currWord = wordsInPhrase.get(i);
+
+            for (int j = 0; j < currWord.length(); j++) {
+                gameBoardButtons[i][j].setBackgroundColor(Color.WHITE);
+                gameBoardLetters[i][j] = currWord.substring(j, j + 1);
+            }
+        }
+
+        // For unused spaces, set them as disabled. For characters like , ' ! :, show them.
+
+        for (int i = 0; i < gameBoardLetters.length; i++) {
+            for (int j = 0; j < gameBoardLetters[i].length; j++) {
+                if (gameBoardLetters[i][j] == null) {
+                    gameBoardButtons[i][j].setEnabled(false);
+                    gameBoardButtons[i][j].setBackgroundColor(Color.LTGRAY);
+                } else {
+                    if (showAll) {
+                        gameBoardButtons[i][j].setText(gameBoardLetters[i][j]);
+                    } else {
+                        if (gameBoardLetters[i][j].equals(",")) {
+                            gameBoardButtons[i][j].setText(",");
+                        }
+
+                        if (gameBoardLetters[i][j].equals("'")) {
+                            gameBoardButtons[i][j].setText("'");
+                        }
+                    }
+                }
+            }
+        }
+    }

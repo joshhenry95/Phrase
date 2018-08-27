@@ -1,0 +1,50 @@
+public static void createGameBoard(Button[][] gameBoardButtons, String[][] gameBoardLetters, TextView categoryLabel, TextView feedbackLabel) {
+	int remainingRows = 4;              // Decrements when we have to move to another row (loop control)
+    //int remainingSquares = 28;          // Decrements when we add a letter to the board (loop control)
+    int currRowIndex = 0;               // Increments when we have to move to the next row (2D array indexing)
+    int currColIndex = 0;               // Increments after we add a letter (2D array indexing)
+    int remainingSquaresInCurrRow = 7;  // Decrements when we add a letter to the current row (how we know when we have to move
+	final int LENGTH_OF_LINE = 
+	boolean validPhrase = false;
+	
+	while (!validPhrase) {
+	    Phrase currPhrase = Phrases.getRandomPhrase();
+		currRowIndex = 0;  // can be <= 3 (since 4 lines on the board)
+		currColIndex = 0;  // can be <= 6 (since 7 chars per line)
+		
+		String[] wordArr = currPhrase.getPhraseStr().split(" ");
+		
+		ArrayList<String> wordArrList = new ArrayList<String>(Arrays.asList(arr))); // All strings in wordArrList have length <= 7
+		
+		
+		while (currRowIndex <= 3 && !validPhrase) {
+		    String currWord = wordArrList.get(0);
+			
+			if (currColIndex + (currWord.length() - 1) > 6) { // bad: go to next line
+			    currRowIndex++;
+				currColIndex = 0;
+			} else {
+				wordArrList.remove(0);
+				
+			    for (int i = 0; i < currWord.length(); i++) {
+				    String currLetter = currWord.substring(i, i+1);
+					
+					gameBoardLetters[currRowIndex][currColIndex] = currLetter;
+					
+					currColIndex++;
+				}
+				
+				currColIndex++; // Inc currColIndex because otherwise, we wouldn't have a space in between words
+				
+				if (wordArrList.size() == 0) {
+					validPhrase = true;
+				}
+				
+			}
+		}
+	}
+	
+	NOW DISPLAY LETTERS
+	
+	
+}
