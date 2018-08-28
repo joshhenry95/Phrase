@@ -1,26 +1,15 @@
 package joshuahenry.phrase;
 
-import android.annotation.TargetApi;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
+
 import android.os.Handler;
-import android.renderscript.ScriptGroup;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class NormalGameActivity extends AppCompatActivity {
 
@@ -132,11 +121,11 @@ public class NormalGameActivity extends AppCompatActivity {
                             // Unhide all of the letters on the board:
                             Utility.displayLetters(gameBoardButtons, gameBoardLetters, categoryLabel, true);
 
-                            // Wait a couple seconds before starting a new round or displaying end game:
+                            // Wait four seconds before starting a new round or displaying end game:
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 public void run() {
-                                    // Run createGameBoard after 2 seconds:
+                                    // Run createGameBoard after 4 seconds:
 
                                     // Update the phrasesLeftLabel to show how many phrases the user has to solve still:
                                     phrasesLeftLabel.setText("Phrases to solve: " + (NUM_PHRASES_TO_PLAY - Utility.phrasesCnt));

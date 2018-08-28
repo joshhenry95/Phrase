@@ -17,7 +17,6 @@ public class TimeAttackActivity extends AppCompatActivity {
 
     private final int WRONG_GUESS_SCORE = 10;
     private final int CORRECT_GUESS_SCORE = 20;
-    //private final int NUM_PHRASES_TO_PLAY = 4;
     private List<String> guessedLetters;
     private boolean gameOver;
     private int numPhrasesSolved;
@@ -165,11 +164,11 @@ public class TimeAttackActivity extends AppCompatActivity {
                             // Unhide all of the letters on the board:
                             Utility.displayLetters(gameBoardButtons, gameBoardLetters, categoryLabel, true);
 
-                            // Wait a couple seconds before starting a new round or displaying end game:
+                            // Wait four seconds before starting a new round or displaying end game:
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 public void run() {
-                                    // Run createGameBoard after 2 seconds:
+                                    // Run createGameBoard after 4 seconds:
 
                                     Utility.createGameBoard(gameBoardButtons, gameBoardLetters, categoryLabel, feedbackLabel);
 

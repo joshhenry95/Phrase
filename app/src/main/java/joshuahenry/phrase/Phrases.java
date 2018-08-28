@@ -9,7 +9,6 @@ import android.content.Context;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,7 +19,6 @@ public class Phrases {
     public static Phrase activePhrase;
 
     public static void createPhraseList(BufferedReader bufReader) {
-        // TODO: Create phrase list by parsing file
         // Exit app if we can't parse the file!
         try {
             String currLine;
@@ -78,11 +76,8 @@ public class Phrases {
     }
 
     public static Phrase getRandomPhrase() {
-        // TODO: Complete getRandomPhrase()
         Random rand = new Random();
         int index = rand.nextInt((phrases.size()-1) + 1);
-
-
 
         return phrases.remove(index);
     }

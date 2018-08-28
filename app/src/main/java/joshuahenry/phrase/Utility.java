@@ -119,10 +119,8 @@ public class Utility {
     }
 
     public static void createGameBoard(Button[][] gameBoardButtons, String[][] gameBoardLetters, TextView categoryLabel, TextView feedbackLabel) {
-        int remainingRows = 4;              // Decrements when we have to move to another row (loop control)
         int currRowIndex = 0;               // Increments when we have to move to the next row (2D array indexing)
         int currColIndex = 0;               // Increments after we add a letter (2D array indexing)
-        int remainingSquaresInCurrRow = 7;  // Decrements when we add a letter to the current row (how we know when we have to move
         boolean validPhrase = false;
 
 
